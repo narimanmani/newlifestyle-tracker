@@ -9,10 +9,10 @@
     </div>
     <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="navigation-items">
-            <a routerLink="/signup">Signup</a>
-            <a routerLink="/login">Login</a>
-            <a routerLink="/training">Training</a>
-            <a>Logout</a>
+            <a *ngIf="!isAuth" routerLink="/signup">Signup</a>
+            <a *ngIf="!isAuth" routerLink="/login">Login</a>
+            <a *ngIf="isAuth" routerLink="/training">Training</a>
+            <a *ngIf="isAuth" style="cursor: pointer;" (click)="onLogout()">Logout</a>
         </ul>
     </div>
 </mat-toolbar>
